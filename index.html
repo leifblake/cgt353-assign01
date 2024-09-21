@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leif Blake Assign01 CGT 353</title>
+    <style>
+        body {
+            background-color: #A4B05B;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .banner {
+            width: 70%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .nav {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f2f2f2;
+        }
+
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            color: #007BFF;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .headshot {
+            width: 300px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        .text-box {
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .text-box p:first-of-type {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .gallery-container {
+            max-width: 700px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gallery-header {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .gallery {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .arrow {
+            cursor: pointer;
+            font-size: 2em;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="media/headerimage.jpg" alt="Header Image" class="banner">
+
+    <div class="nav">
+        <a href="index.html">Home Page</a>
+        <a href="page2.html">Page 2</a>
+        <a href="page3.html">Page 3</a>
+    </div>
+
+    <div class="content">
+        <img src="media/headshot.jpg" alt="Headshot" class="headshot">
+        <div class="text-box">
+            <p>Hello! My name is Leif Blake.</p>
+            <p>I am a senior at Purdue, studying Web Programming and Design. When I am not in school, or at either of my two jobs, I enjoy hanging out with my friends, playing video games, going out for drinks, taking photos, eating yummy food, playing with my cat, traveling, going to concerts, or playing the violin.</p>
+            <p>In this class, I would like to learn how to take my front-end development skills to the next level with the use of JavaScript. I am excited to learn how to make my websites more user-friendly and interactive. I really think that this will help me grow as a web developer, and give me opportunities to showcase my skills on my portfolio.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="gallery-container">
+            <div class="gallery-header">Photo Gallery</div>
+            <div class="gallery">
+                <span class="arrow" onclick="prevImage()">&#9664;</span>
+                <img id="gallery-image" src="media/image1.jpg" alt="Gallery Image">
+                <span class="arrow" onclick="nextImage()">&#9654;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            "media/image1.jpg",
+            "media/image2.jpg",
+            "media/image3.jpg",
+            "media/image4.jpg",
+            "media/image5.jpg",
+            "media/image6.jpg",
+            "media/image7.jpg",
+            "media/image8.jpg",
+            "media/image9.jpg",
+            "media/image10.jpg"
+        ];
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            const imgElement = document.getElementById("gallery-image");
+            imgElement.src = images[index];
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            showImage(currentImageIndex);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            showImage(currentImageIndex);
+        }
+
+        // Show the first image when the page loads
+        window.onload = function() {
+            showImage(currentImageIndex);
+        };
+    </script>
+
+</body>
+</html>
